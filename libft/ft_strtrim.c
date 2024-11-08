@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:12:58 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 15:20:27 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/08 16:14:54 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[len_str] = '\0';
 	return (str);
 }
-
 /* 
-
 int main(void)
 {
-	printf("%s", ft_strtrim("loloaalohelloworldlaololo", "loa"));
+	printf("%s", ft_strtrim("awdwad", ""));
 }
  */

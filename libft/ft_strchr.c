@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:17:05 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 10:35:17 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:54:34 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strchr(const char *str, int c)
 
 	i = 0;
 	if (c == '\0')
-		return ((char *)str);
+		return ("\0");
 	while (str[i])
 	{
 		if (str[i] == c)
