@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:12:58 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/06 16:38:26 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:20:27 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	while (s1[j] && check_c(set, s1[j]) == 1)
 		j--;
-	str = malloc(j - i + 1);
+	str = malloc(j - i + 2);
 	if (str == NULL)
 		return (NULL);
 	while (i < j + 1)
@@ -50,6 +50,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 }
 
 /* 
+
 int main(void)
 {
 	printf("%s", ft_strtrim("loloaalohelloworldlaololo", "loa"));

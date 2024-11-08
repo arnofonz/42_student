@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:15:48 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 10:35:44 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/08 15:39:31 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		dest[i] = f(i, s[i]);
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
 

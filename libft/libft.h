@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:01:41 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 09:34:56 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:25:19 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <string.h>
 # include <stdint.h>
 # include <stdlib.h>
+
+typedef struct	s_list
+{
+	void *content;
+	struct s_list *next;
+}	t_list;
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
