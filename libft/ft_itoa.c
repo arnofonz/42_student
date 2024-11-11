@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:47:26 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 17:13:18 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/11 16:06:30 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,8 @@ char	*ft_itoa(int n)
 	}
 	while (n != 0)
 	{
-		str[i] = n % 10 + 48;
+		str[i++] = n % 10 + 48;
 		n = n / 10;
-		i ++;
 	}
 	if (sign == 1)
 		str[i] = '-';
@@ -86,8 +85,8 @@ char	*ft_itoa(int n)
 /* 
 int main(void)
 {
-	int n = -2147483648;
+	int n = 648;
 
 	//printf("%s", ft_strrev(str));
 	printf("%s", ft_itoa(n));
-}  */
+}   */
