@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:54:03 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 15:57:00 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:29:14 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 char	*ft_strrchr(const char *str, int c)
 {
 	int	i;
+	int	len;
 
+	len = ft_strlen(str);
 	if (c == '\0')
-		return ("\0");
+		return ((char *)&str[len]);
 	i = ft_strlen(str) - 1;
 	while (i >= 0)
 	{
@@ -34,4 +36,4 @@ int main(void)
 	char c = '\0';
 	
 	printf("%s", ft_strrchr(str, c));
-} */
+}  */

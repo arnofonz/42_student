@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:04:07 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/05 09:54:25 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:16:56 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	{
 		while (n > 0)
 		{
-			dest[n] = tmp[n];
+			dest[n - 1] = tmp[n - 1];
 			n--;
 		}
 	}

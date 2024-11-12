@@ -6,15 +6,15 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:20:59 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 10:34:49 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:11:38 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
-	if (c >= 33 && c <= 126)
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }

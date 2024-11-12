@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:47:26 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/11 16:06:30 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:38:50 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,15 @@ char	*ft_itoa(int n)
 	}
 	if (sign == 1)
 		str[i] = '-';
-	str[i + 1] = '\0';
+	str[i] = '\0';
 	return (ft_strrev(str));
 }
-
 /* 
+
 int main(void)
 {
 	int n = 648;
 
 	//printf("%s", ft_strrev(str));
 	printf("%s", ft_itoa(n));
-}   */
+}  */

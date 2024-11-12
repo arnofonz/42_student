@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:39:37 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/07 13:55:22 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:28:17 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**ft_split(char const *s, char c)
 int main(void)
 {
 	int i = 0;
-	const char *str = "      hello     les   copains    iii";
+	const char *str = "   ";
 	char c = ' ';
 	char **strstr;
 
@@ -76,4 +76,4 @@ int main(void)
 		i++;
 	 }
 	
-} */
+}  */

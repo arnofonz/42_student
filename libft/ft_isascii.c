@@ -6,13 +6,13 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:02:42 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 15:35:35 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 12:41:58 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(char c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

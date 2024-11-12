@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 14:29:47 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 12:04:13 by afontan          ###   ########.fr       */
+/*   Created: 2024/11/12 11:38:10 by afontan           #+#    #+#             */
+/*   Updated: 2024/11/12 11:57:20 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_ct;
+	t_list	*newlist;
+	t_list	*new_content;
 
-	new_ct = (t_list *)malloc(sizeof(t_list));
-	if (!new_ct)
-		return (NULL);
-	new_ct -> content = content;
-	new_ct -> next = NULL;
-	return (new_ct);
+	newlist = NULL;
+	while (lst)
+	{
+		new_content = ft_lstnew(f(lst -> content));
+		if (!new_content)
+		{
+			ft_lstclear(&newlist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&newlist, new_content);
+		lst = lst -> next;
+	}
+	return (newlist);
 }
-
-/* 
-int main(void)
-{
-	char *x = "hello world";
-	t_list *new;
-
-	new = ft_lstnew((char *)x);
-	printf("%s", (char *)new -> content);
-	free(new);
-} */
