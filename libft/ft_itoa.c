@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:47:26 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 13:38:50 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/13 09:19:14 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,31 @@ char	*ft_strrev(char *str)
 	return (str);
 }
 
+int	ft_sign(int n)
+{
+	int	sign;
+
+	sign = 1;
+	if (n < 0)
+		sign = -1;
+	return (sign);
+}
+
 char	*testmalloc(int n)
 {
 	int		i;
 	int		sign;
 	char	*str;
 
-	sign = 1;
+	sign = ft_sign(n);
 	i = 0;
+	if (n == 0)
+	{
+		str = malloc(2);
+		return (str);
+	}
 	if (n < 0)
-		sign = -1;
+		n = -n;
 	while (n > 0)
 	{
 		n = n / 10;
@@ -60,33 +75,31 @@ char	*ft_itoa(int n)
 	char	*str;
 
 	i = 0;
-	sign = 0;
-	str = testmalloc(n);
+	sign = ft_sign(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
+	str = testmalloc(n);
 	if (n == 0)
-		return (0);
-	if (n < 0)
 	{
-		sign = 1;
-		n = -n;
+		str[0] = '0';
+		i++;
 	}
+	if (n < 0)
+		n = -n;
 	while (n != 0)
 	{
 		str[i++] = n % 10 + 48;
 		n = n / 10;
 	}
-	if (sign == 1)
-		str[i] = '-';
+	if (sign == -1)
+		str[i++] = '-';
 	str[i] = '\0';
 	return (ft_strrev(str));
 }
-/* 
 
+/* 
 int main(void)
 {
-	int n = 648;
-
-	//printf("%s", ft_strrev(str));
+	int n = 0;
 	printf("%s", ft_itoa(n));
-}  */
+}    */

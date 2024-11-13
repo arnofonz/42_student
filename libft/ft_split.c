@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 16:39:37 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 13:28:17 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:51:35 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ int	countwords(const char *str, char c)
 	return (count);
 }
 
+void free_malloc(char **str, int size)
+{
+	int i;
+
+	i = 0;
+	while (i< size)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**tab_str;
@@ -41,6 +54,12 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	tab = 0;
+	if (s[0] == '\0')
+	{
+		tab_str = malloc(sizeof(char *));
+		tab_str[0] = NULL;
+		return (tab_str);
+	}
 	tab_str = malloc (((countwords(s, c)) + 1) * sizeof(char *));
 	if (!tab_str)
 		return (NULL);
@@ -52,20 +71,35 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i])
 			i++;
 		if (s[i] != '\0')
-			tab_str[tab++] = ft_substr(s, j, i - j);
+		{
+			tab_str[tab] = ft_substr(s, j, i - j);
+			if (!tab_str[tab])
+			{
+				free_malloc(tab_str, tab);
+				return (NULL);
+			}
+			tab++;
+		}
 	}
 	if (s[i] == '\0' && s[i - 1] != c)
-		tab_str[tab++] = ft_substr(s, j, i - j);
+	{
+		tab_str[tab] = ft_substr(s, j, i - j);
+		if (!tab_str[tab])
+			{
+				free_malloc(tab_str, tab);
+				return (NULL);
+			}
+		tab ++;
+	}
 	tab_str[tab] = NULL;
 	return (tab_str);
 }
-
 /* 
 int main(void)
 {
 	int i = 0;
-	const char *str = "   ";
-	char c = ' ';
+	const char *str = "";
+	char c = 'z';
 	char **strstr;
 
 	printf("%d\n", countwords(str, c));
@@ -76,4 +110,4 @@ int main(void)
 		i++;
 	 }
 	
-}  */
+}    */

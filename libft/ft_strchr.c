@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:17:05 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 13:31:34 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 16:49:24 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ char	*ft_strchr(const char *str, int c)
 	int	i;
 
 	i = 0;
-	if (c == '\0')
-		return ("\0");
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (unsigned char)c)
 			return ((char *)&str[i]);
 		i++;
 	}
+	if ((unsigned char)c == '\0')
+		return ((char *)&str[i]);
 	return (NULL);
 }
 /* 
@@ -33,8 +33,8 @@ char	*ft_strchr(const char *str, int c)
 
 int main(void)
 {
-	char ch = 'u';
-	char *str = "hello world !";
+	int ch = 116;
+	char *str = "teste";
 
 	char *st;
 	st = ft_strchr(str, ch);
@@ -42,4 +42,4 @@ int main(void)
 
 	printf("%s", st);
 	
-} */
+}  */

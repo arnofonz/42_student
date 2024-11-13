@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:03:15 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 10:54:18 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/12 18:00:22 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*s2;
-	size_t	i;
-	int		size;
+	size_t	size;
 
-	size = ft_strlen(s);
-	i = 0;
 	if (!s)
 		return (NULL);
-	if (start >= (unsigned int)size)
-		return (malloc(1));
+	size = ft_strlen(s);
+	if (start >= size)
+	{
+		s2 = malloc(1);
+		if (!s2)
+			return (NULL);
+		s2[0] = '\0';
+		return (s2);
+	}
+	if (len > size - start)
+		len = size - start;
 	s2 = malloc((len + 1) * sizeof(char));
 	if (s2 == NULL)
 		return (NULL);
-	while (i < len && s[start])
-	{
-		s2[i] = s[start];
-		i++;
-		start ++;
-	}
-	s2[i] = '\0';
+	ft_strlcpy(s2, &s[start], len + 1);
 	return (s2);
 }
 
 /* 
 int main(void)
 {
-	char *str = "hello world !!!";
+	char *str = "";
 	unsigned int start = 20;
 	size_t len;
 	char *dst;
@@ -50,4 +50,4 @@ int main(void)
 	printf("%zu\n", len);
 	printf("%s", ft_substr(str, start, len));
 	
-} */
+}  */

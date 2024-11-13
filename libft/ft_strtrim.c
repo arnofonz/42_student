@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:12:58 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 16:14:54 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/13 08:46:36 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	j = strlen(s1) - 1;
 	while (s1[i] && check_c(set, s1[i]) == 1)
 		i++;
-	while (s1[j] && check_c(set, s1[j]) == 1)
+	while (j >= i && check_c(set, s1[j]) == 1)
 		j--;
 	str = malloc(j - i + 2);
 	if (str == NULL)
