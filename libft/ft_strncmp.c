@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 13:46:58 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 15:40:15 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:09:06 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-
-/* 
-int main(void)
-{
-	const char *s1 = "hello";
-	const char *s2 = "hella";
-	size_t n = 5;
-
-	printf("%d", ft_strncmp(s1, s2, n));
-}
- */

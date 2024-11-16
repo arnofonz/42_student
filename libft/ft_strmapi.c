@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:15:48 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 15:39:31 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:08:57 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	dest[i] = '\0';
 	return (dest);
 }
-
-/* 
-char	ft_touper(unsigned int i, char c)
-{
-	if (c >= 'a' && c <= 'z')
-		c = c - 32;
-	return (c);
-}
-int main(void)
-{
-	char str[] = "hello";
-	char *dest;
-
-	dest = ft_strmapi(str, ft_touper);
-	printf("%s",dest);
-	
-} */

@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:17:05 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 16:49:24 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:05:20 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,3 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)&str[i]);
 	return (NULL);
 }
-/* 
-#include <stdio.h>
-#include <unistd.h>
-
-int main(void)
-{
-	int ch = 116;
-	char *str = "teste";
-
-	char *st;
-	st = ft_strchr(str, ch);
-
-
-	printf("%s", st);
-	
-}  */

@@ -6,17 +6,14 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:01:41 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/13 10:47:00 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/15 15:42:47 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <unistd.h>
-# include <string.h>
-# include <stdint.h>
 # include <stdlib.h>
 
 typedef struct s_list

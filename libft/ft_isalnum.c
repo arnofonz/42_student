@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:02:48 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 15:35:25 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/16 13:21:52 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,3 @@ int	ft_isalnum(int c)
 		return (0);
 }
 
-/* 
-#include <stdio.h>
-int main(void)
-{
-	char c;
-	
-	c = '.';
-	printf("%d", ft_isalnum(c));
-}  */

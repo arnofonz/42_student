@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:37:54 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 09:35:49 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:06:38 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n / 10, fd);
 	ft_putchar_fd(n % 10 + 48, fd);
 }
-/* 
-int main(void)
-{
-	ft_putnbr_fd(-21483648, 1);
-} */

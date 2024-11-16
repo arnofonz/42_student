@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:04:07 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 13:16:56 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:11:01 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	char	*tmp;
 	char	*dest;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	tmp = (char *)src;
 	dest = (char *)dst;
 	i = 0;
 	if (tmp < dest)
 	{
-		while (n > 0)
+		while (n-- > 0)
 		{
-			dest[n - 1] = tmp[n - 1];
-			n--;
+			dest[n] = tmp[n];
 		}
 	}
 	else
@@ -39,13 +40,3 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-//     size_t n = 5;
-//     char src[] = "hello";
-//     char dst[4];
-//     ft_memmove(dst, src, n);
-//     printf("%s", dst);
-// }

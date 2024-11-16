@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:29:59 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 09:11:07 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:06:35 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,3 @@ void	ft_putstr_fd(char *s, int fd)
 	while (s[i])
 		write(fd, &s[i++], 1);
 }
-
-/* 
-int main(void)
-{
-	ft_putstr_fd("hello", 1);
-} */

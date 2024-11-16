@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 09:38:18 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/07 13:42:29 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/13 15:18:07 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_calloc(size_t nitem, size_t size)
 {
 	void	*ptr;
 
-	if (nitem == 0 || size == 0)
-		return (NULL);
 	ptr = malloc(nitem * size);
 	if (!ptr)
 		return (NULL);

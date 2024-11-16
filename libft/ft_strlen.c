@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:02:17 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 10:35:35 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:02:48 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,3 @@ int	ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-
-/* 
-#include <stdio.h>
-
-int main(void)
-{
-	printf("%d", ft_strlen("hello"));
-} */

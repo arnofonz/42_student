@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:15:08 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/05 13:44:24 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:00:09 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,3 @@ int	ft_tolower(int c)
 		c = c + 32;
 	return (c);
 }
-
-/* 
-#include <stdio.h>
-#include <unistd.h>
-int main(void)
-{
-	char c = 'X';
-	
-	printf("%d\n", c);
-	printf("%d", ft_tolower(c));
-} */

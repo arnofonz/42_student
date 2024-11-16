@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:32:34 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 10:43:25 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/16 13:21:56 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-/* 
-#include <stdio.h>
-int main(void)
-{
-	char c;
-	
-	c = 'h';
-	printf("%d", ft_isalpha(c));
-} */

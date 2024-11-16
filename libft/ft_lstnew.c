@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:29:47 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 12:04:13 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:07:17 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new_ct -> next = NULL;
 	return (new_ct);
 }
-
-/* 
-int main(void)
-{
-	char *x = "hello world";
-	t_list *new;
-
-	new = ft_lstnew((char *)x);
-	printf("%s", (char *)new -> content);
-	free(new);
-} */

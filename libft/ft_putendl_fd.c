@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:33:26 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 09:10:52 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:06:41 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,3 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, &s[i++], 1);
 	ft_putchar_fd('\n', fd);
 }
-
-/* 
-int main(void)
-{
-	ft_putendl_fd("hello", 1);
-} */

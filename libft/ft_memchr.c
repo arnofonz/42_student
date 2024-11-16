@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:10:59 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/05 14:55:26 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:07:11 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*str;
 
 	str = (unsigned char *)s;
-	if (s == NULL)
-		return (NULL);
 	i = 0;
 	while (i < n)
 	{
@@ -29,13 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/* 
-int main(void)
-{
-	char *str = NULL;
-	size_t n = 3;
-	char c = 'w';
-	
-	printf("%s", ((char *)ft_memchr(str, c, n)));
-} */

@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:03:15 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 18:00:22 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:00:13 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(s2, &s[start], len + 1);
 	return (s2);
 }
-
-/* 
-int main(void)
-{
-	char *str = "";
-	unsigned int start = 20;
-	size_t len;
-	char *dst;
-
-	len = ft_strlen(str);
-	dst = ft_substr(str, start, len);
-	printf("%zu\n", len);
-	printf("%s", ft_substr(str, start, len));
-	
-}  */

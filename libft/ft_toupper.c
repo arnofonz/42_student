@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:03:57 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 11:09:40 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:00:05 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,3 @@ int	ft_toupper(int c)
 		c = c - 32;
 	return (c);
 }
-
-/* 
-#include <stdio.h>
-#include <unistd.h>
-int main(void)
-{
-	char c = 'X';
-	
-	printf("%d\n", c);
-	printf("%d", ft_touper(c));
-} */

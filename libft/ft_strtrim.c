@@ -6,13 +6,13 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:12:58 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/13 08:46:36 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/15 10:25:51 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	check_c(const char *s1, char c)
+static int	check_c(const char *s1, char c)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	len_str = 0;
-	j = strlen(s1) - 1;
+	j = ft_strlen(s1) - 1;
 	while (s1[i] && check_c(set, s1[i]) == 1)
 		i++;
 	while (j >= i && check_c(set, s1[j]) == 1)
@@ -48,9 +48,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[len_str] = '\0';
 	return (str);
 }
-/* 
-int main(void)
-{
-	printf("%s", ft_strtrim("awdwad", ""));
-}
- */

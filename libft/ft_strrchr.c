@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 12:54:03 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 16:54:22 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:00:27 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,3 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	return (NULL);
 }
-/* 
-int main(void)
-{
-	const char str[] = "hello world";
-	char c = '\0';
-	
-	printf("%s", ft_strrchr(str, c));
-}  */

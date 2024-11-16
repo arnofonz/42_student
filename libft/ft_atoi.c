@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:20:39 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/08 10:40:04 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/15 15:36:15 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (x * sign);
 }
-
-/* 
-int main(void)
-{
-	printf("%d", ft_atoi("     -15434"));
-} */

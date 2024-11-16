@@ -6,13 +6,13 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 13:47:26 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/13 09:19:14 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/15 10:26:17 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev(char *str)
+static char	*ft_strrev(char *str)
 {
 	int		i;
 	int		len;
@@ -30,7 +30,7 @@ char	*ft_strrev(char *str)
 	return (str);
 }
 
-int	ft_sign(int n)
+static int	ft_sign(int n)
 {
 	int	sign;
 
@@ -40,17 +40,18 @@ int	ft_sign(int n)
 	return (sign);
 }
 
-char	*testmalloc(int n)
+static char	*testmalloc(int n, int sign)
 {
 	int		i;
-	int		sign;
 	char	*str;
 
-	sign = ft_sign(n);
 	i = 0;
 	if (n == 0)
 	{
 		str = malloc(2);
+		if (!str)
+			return (NULL);
+		str[0] = '0';
 		return (str);
 	}
 	if (n < 0)
@@ -78,12 +79,11 @@ char	*ft_itoa(int n)
 	sign = ft_sign(n);
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	str = testmalloc(n);
+	str = testmalloc(n, sign);
+	if (!str)
+		return (NULL);
 	if (n == 0)
-	{
-		str[0] = '0';
 		i++;
-	}
 	if (n < 0)
 		n = -n;
 	while (n != 0)
@@ -96,10 +96,3 @@ char	*ft_itoa(int n)
 	str[i] = '\0';
 	return (ft_strrev(str));
 }
-
-/* 
-int main(void)
-{
-	int n = 0;
-	printf("%s", ft_itoa(n));
-}    */

@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:16:31 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/12 17:30:04 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/14 15:00:31 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,3 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	}
 	return (0);
 }
-/* 
-
-int main(void)
-{
-	const char *s1 = "";
-	const char *s2 = "xx";
-	size_t n = 4294967295;
-	
-	printf("%s", ft_strnstr(s1, s2, n));
-	
-}
-   */
