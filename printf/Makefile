@@ -6,14 +6,14 @@
 #    By: afontan <afontan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/15 16:14:39 by afontan           #+#    #+#              #
-#    Updated: 2024/11/15 16:20:44 by afontan          ###   ########.fr        #
+#    Updated: 2024/11/17 19:33:48 by afontan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME 		= libftprintf.a
 
-SRCS		= ft_printf.c ft_toolspf ft_putnbr_dif
+SRCS		= ft_printf.c ft_toolspf.c ft_putnbr_dif.c
 
 CC			= gcc -c
 

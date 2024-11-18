@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:09:19 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/15 16:27:50 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/18 10:59:31 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int	ft_putnbr(int nb)
 
 	count = 0;
 	tmp = nb;
+	if (nb == 0 || nb == -2147483648)
+	{
+		count = particular_case(nb);
+		return (count);
+	}
 	while (tmp != 0)
 	{
 		tmp = tmp / 10;
 		count ++;
-	}
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return (11);
 	}
 	if (nb < 0)
 	{
@@ -43,11 +43,16 @@ int	ft_putnbr(int nb)
 
 int	ft_unsigned_putnbr(unsigned int nb)
 {
-	unsigned int	tmp;
+	unsigned long	tmp;
 	int				count;
 
 	count = 0;
 	tmp = nb;
+	if (nb == 0)
+	{
+		ft_putchar('0');
+		return (1);
+	}
 	while (tmp != 0)
 	{
 		tmp = tmp / 10;
@@ -68,6 +73,11 @@ int	ft_hexamin_putnbr(unsigned int nb)
 	base = "0123456789abcdef";
 	count = 0;
 	tmp = nb;
+	if (nb == 0)
+	{
+		ft_putchar('0');
+		return (1);
+	}
 	while (tmp != 0)
 	{
 		tmp = tmp / 16;
@@ -88,6 +98,11 @@ int	ft_hexamaj_putnbr(unsigned int nb)
 	base = "0123456789ABCDEF";
 	count = 0;
 	tmp = nb;
+	if (nb == 0)
+	{
+		ft_putchar('0');
+		return (1);
+	}
 	while (tmp != 0)
 	{
 		tmp = tmp / 16;
@@ -108,6 +123,11 @@ int	ft_long_putnbr(unsigned long nb)
 	base = "0123456789abcdef";
 	count = 0;
 	tmp = nb;
+	if (nb == 0)
+	{
+		ft_putchar('0');
+		return (1);
+	}
 	while (tmp != 0)
 	{
 		tmp = tmp / 16;

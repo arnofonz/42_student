@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 15:45:22 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/15 16:27:43 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/18 11:12:16 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	check_char(char c, va_list args)
 		len += ft_hexamaj_putnbr(va_arg(args, unsigned int));
 	else if (c == '%')
 		len += ft_putchar('%');
+	else
+		len += ft_putchar('%');
 	return (len);
 }
 
@@ -55,22 +57,22 @@ int	ft_printf(const char *format, ...)
 			i += 2;
 		}
 		else
-		{
-			len += ft_putchar((int)str[i]);
-			i++;
-		}
+			len += ft_putchar((int)str[i++]);
 	}
 	va_end(args);
 	return (len);
 }
-
 /* 
 #include <stdio.h>
 
 int main(void)
 {
-	int i = 0;
+	char *str = NULL;
 
-printf("nb de c : %d\n", ft_printf("Resultat de ma fonction : %p ", &i));
-printf("nb de c : %d\n", printf("Resultat de printf----- : %p ", &i));
-} */
+printf("nb de c : %d\n", ft_printf("Rslt de ma fonction : %s //", str));
+printf("nb de c : %d\n", printf("Rslt de printf----- : %s //", str));
+printf("nb de c : %d\n", ft_printf("Rslt de ma fonction : %X //", -42));
+printf("nb de c : %d\n", printf("Rslt de printf----- : %X //", -42));
+printf("nb de c : %d\n", ft_printf("Rslt de ma fonction : %u //", 123456));
+printf("nb de c : %d\n", printf("Rslt de printf----- : %u //", 123456));
+}   */
