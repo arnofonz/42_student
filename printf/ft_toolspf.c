@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 09:58:04 by afontan           #+#    #+#             */
-/*   Updated: 2024/11/18 10:13:25 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/18 14:03:11 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ int	ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
+}
+
+int	printprc(void)
+{
+	ft_putchar('%');
+	ft_putchar(' ');
+	return (2);
 }
 
 int	ft_putstr(char *str)
