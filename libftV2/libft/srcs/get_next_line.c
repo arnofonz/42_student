@@ -6,11 +6,29 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:31:35 by afontan           #+#    #+#             */
-/*   Updated: 2024/12/12 13:23:39 by afontan          ###   ########.fr       */
+/*   Updated: 2024/12/12 13:26:57 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
+
+int	ft_strchrmod(const char *str, int c)
+{
+	int	i;
+
+	if (str == NULL)
+		return (-1);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (unsigned char)c)
+			return (1);
+		i++;
+	}
+	if ((unsigned char)c == '\0')
+		return (2);
+	return (0);
+}
 
 char	*cpy_line(char *str)
 {
@@ -76,7 +94,7 @@ char	*read_and_join(int fd, char *tmp)
 	buffer = ft_calloc(1, BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	while (ft_strchr(tmp, '\n') != 1 && size_read > 0)
+	while (ft_strchrmod(tmp, '\n') != 1 && size_read > 0)
 	{
 		size_read = read(fd, buffer, BUFFER_SIZE);
 		if (size_read < 0 || (size_read == 0 && tmp == NULL))
