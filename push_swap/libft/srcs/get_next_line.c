@@ -6,11 +6,11 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:31:35 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/10 16:33:54 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/10 17:55:51 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*cpy_line(char *str)
 {
@@ -76,7 +76,7 @@ char	*read_and_join(int fd, char *tmp)
 	buffer = ft_calloc(1, BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
-	while (ft_strchr(tmp, '\n') != 1 && size_read > 0)
+	while (ft_strchr_gnl(tmp, '\n') != 1 && size_read > 0)
 	{
 		size_read = read(fd, buffer, BUFFER_SIZE);
 		if (size_read < 0 || (size_read == 0 && tmp == NULL))
@@ -87,7 +87,7 @@ char	*read_and_join(int fd, char *tmp)
 		}
 		buffer[size_read] = '\0';
 		temp = tmp;
-		tmp = ft_strjoin(tmp, buffer);
+		tmp = ft_strjoin_gnl(tmp, buffer);
 		if (temp)
 			free (temp);
 	}
