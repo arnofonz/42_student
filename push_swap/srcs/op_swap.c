@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:36:20 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/13 11:42:04 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 12:03:14 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,12 @@ void	swap_arg(t_stack *stack)
 
 void	sa(t_stack **stack_a)
 {
-	if (!stack_a)
-		return;
 	swap_arg(*stack_a);
 	ft_putstr("sa\n");
 }
 
 void	sb(t_stack **stack_b)
 {
-	if (!stack_b)
-		return;
 	swap_arg(*stack_b);
 	ft_putstr("sb\n");
 }

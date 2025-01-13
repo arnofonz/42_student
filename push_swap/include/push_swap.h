@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:18:43 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/12 18:50:03 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 12:16:03 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
+void	rotate(t_stack **stack);
+void	r_rotate(t_stack **stack);
 
 /**========================================================================
  *                              Sort 2 to 5
@@ -128,5 +130,17 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b);
 long	ft_atoi_ps(const char *str);
 void	copy_nbr(t_stack **stack_a, int *tab, int max);
 int		is_tried(t_stack *stack);
+
+/**========================================================================
+ *                           Utils Bonus
+ *========================================================================**/
+
+void	sw_bonus(t_stack **stack);
+void	ss_bonus(t_stack **stack_a, t_stack **stack_b);
+void	ro_bonus(t_stack **stack);
+void	rr_bonus(t_stack **stack_a, t_stack **stack_b);
+void	pu_bonus(t_stack **stack_a, t_stack **stack_b);
+void	rro_bonus(t_stack **stack_b);
+void	rrr_bonus(t_stack **stack_a, t_stack **stack_b);
 
 #endif

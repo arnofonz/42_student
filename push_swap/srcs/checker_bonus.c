@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:33:25 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/10 18:32:43 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 12:23:59 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,27 @@ int	ft_strcmp(const char *s2, const char *s1)
 int	prompt_instructions(t_stack **stack_a, t_stack **stack_b, char *str)
 {
 	if (ft_strcmp(str, "sa\n") == 0)
-		sa(stack_a);
+		sw_bonus(stack_a);
 	else if (ft_strcmp(str, "sb\n") == 0)
-		sb(stack_b);
+		sw_bonus(stack_b);
 	else if (ft_strcmp(str, "ss\n") == 0)
-		ss(stack_a, stack_b);
+		ss_bonus(stack_a, stack_b);
 	else if (ft_strcmp(str, "pa\n") == 0)
-		pa(stack_a, stack_b);
+		pu_bonus(stack_b, stack_a);
 	else if (ft_strcmp(str, "pb\n") == 0)
-		pb(stack_a, stack_b);
+		pu_bonus(stack_a, stack_b);
 	else if (ft_strcmp(str, "ra\n") == 0)
-		ra(stack_a);
+		ro_bonus(stack_a);
 	else if (ft_strcmp(str, "rb\n") == 0)
-		rb(stack_b);
+		ro_bonus(stack_b);
 	else if (ft_strcmp(str, "rr\n") == 0)
-		rr(stack_a, stack_b);
+		rr_bonus(stack_a, stack_b);
 	else if (ft_strcmp(str, "rra\n") == 0)
-		rra(stack_a);
+		rro_bonus(stack_a);
 	else if (ft_strcmp(str, "rrb\n") == 0)
-		rrb(stack_b);
+		rro_bonus(stack_b);
 	else if (ft_strcmp(str, "rrr\n") == 0)
-		rrr(stack_a, stack_b);
+		rrr_bonus(stack_a, stack_b);
 	else
 		return (0);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:36:24 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/13 11:39:51 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 12:21:39 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 		sort_2_to_5(&stack_a, &stack_b, nb_arg);
 	else
 		sort_rest(&stack_a, &stack_b);
-ft_printf("is tried : %d\n", is_tried(stack_a));
 	ft_stack_clear(&stack_a, del);
 	return (0);
 }
+//ft_printf("is tried : %d\n", is_tried(stack_a));

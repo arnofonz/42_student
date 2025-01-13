@@ -6,7 +6,7 @@
 #    By: afontan <afontan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 14:31:49 by afontan           #+#    #+#              #
-#    Updated: 2025/01/11 10:51:50 by afontan          ###   ########.fr        #
+#    Updated: 2025/01/13 12:23:00 by afontan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS		= main.c op_swap.c op_push.c op_rotate.c op_rrotate.c sort_2_3.c \
 
 SRC_BONUS	= op_swap.c op_push.c op_rotate.c op_rrotate.c sort_2_3.c \
 			check.c sort_more.c utils_pushswap.c sort_a_to_b.c sort_b_to_a.c \
-			initialize.c utils_lst.c utils.c checker.c
+			initialize.c utils_lst.c utils.c checker_bonus.c utils_bonus.c \
+			utils_bonus_two.c
 
 CC			= gcc
 RM			= rm -f
@@ -60,7 +61,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 bonus:		${LIBFT_A} ${OBJ_BONUS} ${NAME}
 			$(CC) $(FLAGS) -o ${BONUS_NAME} ${OBJ_BONUS} ${LIBFT_A}
-			
+			@echo "$(GREEN)$(BOLD)Success: Compilation of BONUS complete!$(RESET)"
+
 %.o: %.c	
 			${CC} ${FLAGS} -c $< -o $@
 			
