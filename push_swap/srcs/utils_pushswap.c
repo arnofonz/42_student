@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 14:11:59 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/09 15:09:24 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 11:27:26 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	find_min(t_stack **stack)
 	int		min;
 	t_stack	*check;
 
-	min = 0;
 	check = *stack;
+	min = check->index;
 	while (check != NULL)
 	{
 		if (check ->index < min)

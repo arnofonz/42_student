@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:36:24 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/10 18:19:13 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 11:39:51 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	{
 		if (curent_a != NULL)
 		{
-			ft_printf("%d", curent_a ->value);
-			ft_printf(" - index : %d", curent_a -> index);
+			ft_printf("%d", curent_a ->index);
 			curent_a = curent_a ->next;
 		}
 		else
@@ -40,6 +39,19 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+static int	preselect(t_stack **stack_a, int ac, char **av)
+{
+	int	nb_arg;
+
+	if (ac < 2)
+		return (0);
+	else if (ac == 2)
+		nb_arg = initialize_stack(stack_a, av[1]);
+	else if (ac > 2)
+		nb_arg = initiailize_arg(stack_a, ac, av);
+	return (nb_arg);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -48,28 +60,24 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac < 2)
-		return (0);
-	else if (ac == 2)
-		nb_arg = initialize_stack(&stack_a, av[1]);
-	else if (ac > 2)
-		nb_arg = initiailize_arg(&stack_a, ac, av);
+	nb_arg = preselect(&stack_a, ac, av);
 	if (nb_arg == 0)
 		return (0);
 	if (nb_arg < 0)
+	{
+		ft_stack_clear(&stack_a, del);
 		return (ft_putstr("Error \n"));
+	}
 	else if (is_tried(stack_a) == 1)
+	{
+		ft_stack_clear(&stack_a, del);
 		return (0);
+	}
 	else if (nb_arg <= 5)
 		sort_2_to_5(&stack_a, &stack_b, nb_arg);
 	else
 		sort_rest(&stack_a, &stack_b);
+ft_printf("is tried : %d\n", is_tried(stack_a));
 	ft_stack_clear(&stack_a, del);
-	ft_stack_clear(&stack_b, del);
 	return (0);
 }
-	//ft_printf("is tried : %d\n", is_tried(stack_a));
-
-	//print_stack(stack_a, stack_b);
-	//ft_printf("pos min: %d\n", is_min(stack_a));
-	//ft_printf("len stack: %d\n", len_stack(stack_a));

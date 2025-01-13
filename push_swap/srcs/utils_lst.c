@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:21:25 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/09 15:24:27 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 11:33:37 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,20 @@ void	del(t_stack *node)
 		free(node);
 }
 
+t_stack	*go_end(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
 t_stack	*my_lstnew(int new_value, int new_index)
 {
 	t_stack	*new_ct;
 
-	new_ct = ft_calloc(0, sizeof(t_stack));
+	new_ct = ft_calloc(1, sizeof(t_stack));
 	if (!new_ct)
 		return (NULL);
 	new_ct ->value = new_value;
@@ -62,5 +71,5 @@ void	ft_stack_clear(t_stack **lst, void (*del)(t_stack *))
 		*lst = (*lst)->next;
 		del(temp);
 	}
-	lst = NULL;
+	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 15:25:18 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/07 10:03:51 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 11:39:27 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,28 +62,15 @@ void	sort_3(t_stack **stack_a)
 
 void	sort_4(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*check_a;
-	t_stack	*list;
+	t_utils	*utils;
 
-	check_a = (*stack_a);
-	while (check_a ->next -> next != NULL)
-	{
-		list = (*stack_a);
-		if (is_min(stack_a) > 1)
-		{
-			if (is_min(stack_a) <= len_stack(list) / 2)
-				ra(stack_a);
-			else if (is_min(stack_a) > len_stack(list) / 2)
-				rra(stack_a);
-			list = (*stack_a);
-			check_a = (*stack_a);
-		}
-		else
-			pb(stack_a, stack_b);
-		check_a = check_a -> next;
-	}
+	utils = (t_utils *)malloc(sizeof(t_utils));
+	pb(stack_a, stack_b);
 	sort_3(stack_a);
-	pa(stack_a, stack_b);
+	push_b_to_a(stack_a, stack_b, utils);
+	while (is_tried(*stack_a) != 1)
+		ra(stack_a);
+	free (utils);
 }
 
 void	sort_5(t_stack **stack_a, t_stack **stack_b)

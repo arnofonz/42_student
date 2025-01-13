@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:22:42 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/09 17:02:24 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 11:33:00 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	rot_back_one(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
 		rb(stack_b);
 		utils->cost_b--;
 	}
-	rot_back_two(stack_a, stack_a, utils);
+	rot_back_two(stack_a, stack_b, utils);
 }
 
 /**========================================================================

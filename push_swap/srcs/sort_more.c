@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:20:24 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/09 16:26:51 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/13 11:28:29 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ int	verif_targ(int index_a, t_stack **stack_b)
  *                      Verif le noeud cible de B vers A
  *========================================================================**/
 
-int	targ_ret(int index_a, t_stack **stack_b)
+int	targ_ret(int index_b, t_stack **stack_a)
 {
 	int		to_find;
 	t_stack	*check_b;
 
-	if (check_max (stack_b, index_a) == 1)
-		return (find_min(stack_b));
-	check_b = *stack_b;
-	to_find = find_max(stack_b);
+	if (check_max (stack_a, index_b) == 1)
+		return (find_min(stack_a));
+	check_b = *stack_a;
+	to_find = find_max(stack_a);
 	while (check_b != NULL)
 	{
-		if (index_a < check_b->index && check_b->index < to_find)
+		if (index_b < check_b->index && check_b->index < to_find)
 			to_find = check_b ->index;
 		check_b = check_b->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:18:43 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/10 17:58:52 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/12 18:50:03 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ typedef struct s_utils
 void	swap_arg(t_stack *stack);
 void	my_push_back(t_stack **stack_a, int new_value, int new_index);
 t_stack	*my_lstnew(int new_value, int new_index);
-void	my_push_front(t_stack **stack, int new_value, int new_index);
+void	my_push_front(t_stack **stack_a, t_stack **stack_b);
 void	del(t_stack *node);
 int		ft_lstcmp(t_stack **stack_a);
 void	ft_stack_clear(t_stack **lst, void (*del)(t_stack *));
+t_stack	*go_end(t_stack *stack);
 
 /**========================================================================
  *                               Initialize
@@ -72,7 +73,7 @@ void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_a);
 void	ss(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_b, t_stack **stack_a);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_a);
 void	rr(t_stack **stack_a, t_stack **stack_b);
