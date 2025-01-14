@@ -6,19 +6,17 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 17:59:35 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/10 18:00:06 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:44:54 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	ft_atoi_ps(const char *str)
+long	ft_atoi_ps(const char *str, int i)
 {
 	long	x;
-	int		i;
 	int		sign;
 
-	i = 0;
 	x = 0;
 	sign = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
@@ -26,7 +24,11 @@ long	ft_atoi_ps(const char *str)
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
+		{
+			if (str[i + 1] < '0' || str[i + 1] > '9')
+				return (21454654354345);
 			sign = -sign;
+		}
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')

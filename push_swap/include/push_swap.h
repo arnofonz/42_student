@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:18:43 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/13 12:16:03 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/14 16:43:45 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int		is_min(t_stack **stack_a);
 int		len_stack(t_stack *stack);
 void	ft_sort_int_tab(int *tab, unsigned int size);
 void	print_stack(t_stack *stack_a, t_stack *stack_b);
-long	ft_atoi_ps(const char *str);
+long	ft_atoi_ps(const char *str, int i);
 void	copy_nbr(t_stack **stack_a, int *tab, int max);
 int		is_tried(t_stack *stack);
 
