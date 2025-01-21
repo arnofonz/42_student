@@ -6,11 +6,38 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:33:25 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/13 12:23:59 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/21 09:54:20 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	print_stack(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack	*curent_a;
+	t_stack	*curent_b;
+
+	curent_a = stack_a;
+	curent_b = stack_b;
+	ft_printf("%s\n", "Pile A\t\tPile B\n");
+	while (curent_a != NULL || curent_b != NULL)
+	{
+		if (curent_a != NULL)
+		{
+			ft_printf("%d", curent_a ->index);
+			curent_a = curent_a ->next;
+		}
+		else
+			ft_printf(" ");
+		if (curent_b != NULL)
+		{
+			ft_printf("\t\t%d\n", curent_b ->index);
+			curent_b = curent_b ->next;
+		}
+		else
+			ft_printf(" \n");
+	}
+}
 
 int	ft_strcmp(const char *s2, const char *s1)
 {
@@ -46,6 +73,8 @@ int	prompt_instructions(t_stack **stack_a, t_stack **stack_b, char *str)
 		rro_bonus(stack_b);
 	else if (ft_strcmp(str, "rrr\n") == 0)
 		rrr_bonus(stack_a, stack_b);
+	else if (ft_strcmp(str, "print\n") == 0)
+		print_stack(*stack_a, *stack_b);
 	else
 		return (0);
 	return (1);
@@ -61,13 +90,18 @@ int	get_instruction(t_stack **stack_a, t_stack **stack_b)
 	{
 		if ((prompt_instructions(stack_a, stack_b, line)) == 0)
 		{
-			ft_printf("Error\n");
+			write(2, "Error \n", 7);
+			ft_stack_clear(stack_a, del);
+			ft_stack_clear(stack_b, del);
 			free(line);
+			line = NULL;
 			return (0);
 		}
 		free(line);
 		line = get_next_line(0);
 	}
+	free(line);
+	line = NULL;
 	return (1);
 }
 
@@ -77,13 +111,17 @@ int	check_and_do(t_stack **stack_a, t_stack **stack_b)
 		return (0);
 	if (!ft_lstcmp(stack_a))
 	{
-		ft_putstr("Error\n");
+		write(2, "Error \n", 7);
+		ft_stack_clear(stack_a, del);
+		ft_stack_clear(stack_b, del);
 		return (0);
 	}
-	if (is_tried(*stack_a) == 1)
+	if (is_tried(*stack_a) == 1 && (*stack_b) == NULL)
 		ft_putstr("OK");
 	else
 		ft_putstr("KO");
+	ft_stack_clear(stack_a, del);
+	ft_stack_clear(stack_b, del);
 	return (1);
 }
 
@@ -102,9 +140,41 @@ int	main(int ac, char **av)
 	else if (ac > 2)
 		nb_arg = initiailize_arg(&stack_a, ac, av);
 	if (nb_arg < 0)
-		ft_printf("Error");
+	{
+		write(2, "Error \n", 7);
+		ft_stack_clear(&stack_a, del);
+		ft_stack_clear(&stack_b, del);
+		return (0);
+	}
 	check_and_do(&stack_a, &stack_b);
 	ft_stack_clear(&stack_a, del);
 	ft_stack_clear(&stack_b, del);
 	return (0);
 }
+/* 
+#include <stdio.h>
+#include <stdlib.h>
+
+int get_instruction(t_stack **stack_a, t_stack **stack_b)
+{
+    char *line = NULL;
+    size_t len = 0;
+    ssize_t read;
+
+    while ((read = getline(&line, &len, stdin)) != -1)
+    {
+        // Traitez la ligne lue avec prompt_instructions
+        if (prompt_instructions(stack_a, stack_b, line) == 0)
+        {
+            ft_printf("Error\n");
+            ft_stack_clear(stack_a, del);
+            ft_stack_clear(stack_b, del);
+            free(line);
+            return (0);
+        }
+        free(line);
+        line = NULL;
+    }
+    return (1);
+}
+ */

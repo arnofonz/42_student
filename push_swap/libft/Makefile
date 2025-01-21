@@ -6,7 +6,7 @@
 #    By: afontan <afontan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 10:01:47 by afontan           #+#    #+#              #
-#    Updated: 2025/01/10 16:40:22 by afontan          ###   ########.fr        #
+#    Updated: 2025/01/17 09:44:06 by afontan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,15 +41,15 @@ FLAGS           = -Wall -Werror -Wextra -I$(INCLUDE_DIR)
 all:            ${NAME}
 
 ${NAME} :       ${OBJ_FILES}
-				ar rcs ${NAME} ${OBJ_FILES}
+				@ar rcs ${NAME} ${OBJ_FILES}
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 				@mkdir -p $(OBJ_DIR)
-				$(CC) $(FLAGS) -c $< -o $@
+				@$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ_DIR)/$(PRINTF_DIR)/%.o: $(PRINTF_DIR)/%.c
 				@mkdir -p $(OBJ_DIR)/$(PRINTF_DIR)
-				$(CC) $(FLAGS) -c $< -o $@
+				@$(CC) $(FLAGS) -c $< -o $@
 clean:  
 				${RM} ${OBJ_FILES}
 

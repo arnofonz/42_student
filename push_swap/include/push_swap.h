@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 13:18:43 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/14 16:43:45 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/17 10:16:40 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <limits.h>
+# include <fcntl.h>
 # include "libft.h"
 # include "ft_printf.h"
 

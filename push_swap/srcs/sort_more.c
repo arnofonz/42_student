@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:20:24 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/13 11:28:29 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/15 10:22:31 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	final_rotate(t_stack **stack_a)
 			rotate--;
 		}
 	}
-	if (rotate > len_stack(*stack_a) / 2)
+	if (rotate >= len_stack(*stack_a) / 2)
 	{
 		rotate = len_stack(*stack_a) - rotate;
 		while (rotate)

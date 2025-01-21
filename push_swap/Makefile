@@ -6,7 +6,7 @@
 #    By: afontan <afontan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 14:31:49 by afontan           #+#    #+#              #
-#    Updated: 2025/01/13 12:23:00 by afontan          ###   ########.fr        #
+#    Updated: 2025/01/17 09:45:40 by afontan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,16 +51,16 @@ ${LIBFT_A}:
 			${MAKE} -C ${LIBFT_DR}
 
 ${NAME}:	${OBJS} ${LIBFT_A}
-			$(CC) $(FLAGS) -o ${NAME} ${OBJS} ${LIBFT_A}
+			@$(CC) $(FLAGS) -o ${NAME} ${OBJS} ${LIBFT_A}
 			@echo "$(GREEN)$(BOLD)Success: Compilation of ${NAME} complete!$(RESET)"
 
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 			@mkdir -p $(OBJ_DIR)
-			$(CC) $(FLAGS) -c $< -o $@
+			@$(CC) $(FLAGS) -c $< -o $@
 
 bonus:		${LIBFT_A} ${OBJ_BONUS} ${NAME}
-			$(CC) $(FLAGS) -o ${BONUS_NAME} ${OBJ_BONUS} ${LIBFT_A}
+			@$(CC) $(FLAGS) -o ${BONUS_NAME} ${OBJ_BONUS} ${LIBFT_A}
 			@echo "$(GREEN)$(BOLD)Success: Compilation of BONUS complete!$(RESET)"
 
 %.o: %.c	
