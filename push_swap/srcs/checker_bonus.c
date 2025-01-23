@@ -6,38 +6,11 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 16:33:25 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/21 09:54:20 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/21 10:18:03 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*curent_a;
-	t_stack	*curent_b;
-
-	curent_a = stack_a;
-	curent_b = stack_b;
-	ft_printf("%s\n", "Pile A\t\tPile B\n");
-	while (curent_a != NULL || curent_b != NULL)
-	{
-		if (curent_a != NULL)
-		{
-			ft_printf("%d", curent_a ->index);
-			curent_a = curent_a ->next;
-		}
-		else
-			ft_printf(" ");
-		if (curent_b != NULL)
-		{
-			ft_printf("\t\t%d\n", curent_b ->index);
-			curent_b = curent_b ->next;
-		}
-		else
-			ft_printf(" \n");
-	}
-}
 
 int	ft_strcmp(const char *s2, const char *s1)
 {
@@ -73,8 +46,6 @@ int	prompt_instructions(t_stack **stack_a, t_stack **stack_b, char *str)
 		rro_bonus(stack_b);
 	else if (ft_strcmp(str, "rrr\n") == 0)
 		rrr_bonus(stack_a, stack_b);
-	else if (ft_strcmp(str, "print\n") == 0)
-		print_stack(*stack_a, *stack_b);
 	else
 		return (0);
 	return (1);

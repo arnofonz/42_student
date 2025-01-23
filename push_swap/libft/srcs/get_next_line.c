@@ -6,112 +6,118 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:31:35 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/17 13:40:02 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/22 09:50:56 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*cpy_line(char *str)
-{
-	int		i;
-	int		len;
-	char	*dest;
-
-	i = 0;
-	len = 0;
-	while (str[len] != '\n' && str[len] != '\0')
-		len++;
-	len++;
-	dest = ft_calloc(1, len + 1);
-	if (!dest)
-	{
-		free(str);
-		return (NULL);
-	}
-	while (i < len)
-	{
-		dest[i] = str[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-char	*stock_end(char *str)
-{
-	int		i;
-	int		j;
-	char	*dest;
-
-	i = 0;
-	j = 0;
-	while (str[i] != '\n' && str[i])
-		i++;
-	if (!str[i])
-	{
-		free(str);
-		return (NULL);
-	}
-	i++;
-	dest = ft_calloc(1, ft_strlen(str) - i + 1);
-	if (!dest)
-	{
-		free(str);
-		return (NULL);
-	}
-	while (str[i])
-		dest[j++] = str[i++];
-	free(str);
-	return (dest);
-}
-
-char	*read_and_join(int fd, char *tmp)
-{
-	char		*buffer;
-	char		*temp;
-	ssize_t		size_read;
-
-	size_read = 1;
-	buffer = ft_calloc(1, BUFFER_SIZE + 1);
-	if (!buffer)
-		return (NULL);
-	while (ft_strchr_gnl(tmp, '\n') != 1 && size_read > 0)
-	{
-		size_read = read(fd, buffer, BUFFER_SIZE);
-		if (size_read < 0 || (size_read == 0 && tmp == NULL))
-		{
-			free (buffer);
-			free (tmp);
-			return (NULL);
-		}
-		buffer[size_read] = '\0';
-		temp = tmp;
-		tmp = ft_strjoin_gnl(tmp, buffer);
-		if (temp)
-			free (temp);
-	}
-	free (buffer);
-	return (tmp);
-}
-
 char	*get_next_line(int fd)
 {
-	static char	*tmp[1024];
-	char		*line;
+	static t_gnl	*store[200000];
+	t_gnl			*error;
+	char			*queue;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 200000 || BUFFER_SIZE <= 0)
 		return (NULL);
-	tmp[fd] = read_and_join(fd, tmp[fd]);
-	if (!tmp[fd] || tmp[fd][0] == '\0')
+	queue = NULL;
+	if (inventory(store, fd) == -1)
 	{
-		free (tmp[fd]);
-		tmp[fd] = NULL;
-		return (NULL);
+		while (store[fd])
+		{
+			error = store[fd]->next;
+			free(store[fd]->content);
+			free(store[fd]);
+			store[fd] = error;
+		}
+		store[fd] = NULL;
 	}
-	line = cpy_line(tmp[fd]);
-	tmp[fd] = stock_end(tmp[fd]);
-	return (line);
+	if (!store[fd])
+		return (NULL);
+	queue = fetch_queue(store[fd]);
+	cutting_in(&store[fd]);
+	return (queue);
+}
+
+int	inventory(t_gnl **store, int fd)
+{
+	int		bill;
+	char	*product;
+
+	bill = 0;
+	while (!search_newline(store[fd]))
+	{
+		product = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!product)
+			return (bill);
+		bill = read(fd, product, BUFFER_SIZE);
+		if (bill <= 0)
+		{
+			free(product);
+			product = NULL;
+			return (bill);
+		}
+		product[bill] = '\0';
+		stock_replenishment(store, product, fd);
+	}
+	return (bill);
+}
+
+void	stock_replenishment(t_gnl **store, char *product, int fd)
+{
+	t_gnl	*new_product;
+	t_gnl	*last_product;
+
+	last_product = ft_lstlast_gnl(store[fd]);
+	new_product = (t_gnl *)malloc(sizeof(t_gnl));
+	if (!new_product)
+		return ;
+	if (!last_product)
+		store[fd] = new_product;
+	else
+		last_product->next = new_product;
+	new_product->content = product;
+	new_product->next = NULL;
+}
+
+char	*fetch_queue(t_gnl *store)
+{
+	int		queue_len;
+	char	*next_queue;
+
+	if (!store)
+		return (NULL);
+	queue_len = lstlen_till_newline(store);
+	next_queue = (char *)malloc(sizeof(char) * (queue_len + 1));
+	if (!next_queue)
+		return (NULL);
+	cpylst_to_str(store, next_queue);
+	return (next_queue);
+}
+
+void	cutting_in(t_gnl **store)
+{
+	t_gnl	*last_product;
+	t_gnl	*clean_store;
+	int		i;
+	int		j;
+	char	*product;
+
+	product = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	clean_store = (t_gnl *)malloc(sizeof(t_gnl));
+	if (!product || !clean_store)
+		return ;
+	last_product = ft_lstlast_gnl(*store);
+	i = 0;
+	j = 0;
+	while (last_product->content[i] && last_product->content[i] != '\n')
+		i++;
+	while (last_product->content[i] && last_product->content[++i])
+		product[j++] = last_product->content[i];
+	product[j] = '\0';
+	clean_store->content = product;
+	clean_store->next = NULL;
+	free_store(store, clean_store, product);
 }
 
 /* 

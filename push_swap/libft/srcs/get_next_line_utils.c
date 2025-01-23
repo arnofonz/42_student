@@ -6,54 +6,111 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 12:17:35 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/10 16:49:42 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/22 09:50:45 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_gnl(char const *s1, char *s2)
-{
-	char	*dest;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	if (!s1)
-		s1 = "";
-	dest = ft_calloc(1, ft_strlen(s1) + BUFFER_SIZE + 1);
-	if (!dest)
-	{
-		return (NULL);
-	}
-	while (s1[i])
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	while (s2[j] && s2[j])
-	{
-		dest[i + j] = s2[j];
-		j++;
-	}
-	return (dest[i + j] = '\0', dest);
-}
-
-int	ft_strchr_gnl(const char *str, int c)
+int	search_newline(t_gnl *store)
 {
 	int	i;
 
-	if (str == NULL)
-		return (-1);
-	i = 0;
-	while (str[i])
+	if (!store)
+		return (0);
+	while (store)
 	{
-		if (str[i] == (unsigned char)c)
-			return (1);
-		i++;
+		i = 0;
+		while (store->content[i] && i < BUFFER_SIZE)
+		{
+			if (store->content[i] == '\n')
+				return (1);
+			i++;
+		}
+		store = store->next;
 	}
-	if ((unsigned char)c == '\0')
-		return (2);
 	return (0);
+}
+
+t_gnl	*ft_lstlast_gnl(t_gnl *store)
+{
+	if (!store)
+		return (NULL);
+	while (store->next)
+		store = store->next;
+	return (store);
+}
+
+void	cpylst_to_str(t_gnl *store, char *queue)
+{
+	int	i;
+	int	j;
+
+	if (!store)
+		return ;
+	i = 0;
+	while (store)
+	{
+		j = 0;
+		while (store->content[j])
+		{
+			if (store->content[j] == '\n')
+			{
+				queue[i++] = '\n';
+				queue[i] = '\0';
+				return ;
+			}
+			queue[i++] = store->content[j++];
+		}
+		store = store->next;
+	}
+	queue[i] = '\0';
+}
+
+int	lstlen_till_newline(t_gnl *store)
+{
+	int	i;
+	int	len;
+
+	if (!store)
+		return (0);
+	len = 0;
+	while (store)
+	{
+		i = 0;
+		while (store->content[i])
+		{
+			if (store->content[i] == '\n')
+				return (len + 1);
+			i++;
+			len++;
+		}
+		store = store->next;
+	}
+	return (len);
+}
+
+void	free_store(t_gnl	**store, t_gnl *clean_store, char *product)
+{
+	t_gnl	*pop_up;
+
+	if (!*store)
+		return ;
+	while (*store)
+	{
+		pop_up = (*store)->next;
+		free((*store)->content);
+		free(*store);
+		*store = pop_up;
+	}
+	*store = NULL;
+	if (clean_store->content[0])
+		*store = clean_store;
+	else
+	{
+		free(product);
+		product = NULL;
+		free(clean_store);
+		clean_store = NULL;
+	}
 }

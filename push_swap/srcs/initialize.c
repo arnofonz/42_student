@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:35:11 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/14 16:43:24 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/21 10:42:00 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	initiailize_arg(t_stack **stack_a, int ac, char **av)
 		if (!ft_isnum(av[i]))
 			return (-1);
 		num = ft_atoi_ps(av[i], 0);
-		if (num < INT_MIN || num > INT_MAX)
+		if (num < -2147483648 || num > INT_MAX)
 			return (-1);
 		my_push_back(stack_a, ft_atoi(av[i]), 0);
 		i++;
@@ -93,7 +93,7 @@ int	include_in_stack(t_stack **stack_a, char *str, int i, int sign)
 				i++;
 			}
 			x = x * 10 + str[i++] - 48;
-			if (x < INT_MIN || x > INT_MAX)
+			if (x < -2147483648 || x > INT_MAX)
 				return (-1);
 		}
 		my_push_back(stack_a, x * sign, 0);
@@ -105,7 +105,8 @@ int	initialize_stack(t_stack **stack_a, char *str)
 {
 	if (verif_error_str(str) != 0 && verif_error_str(str) <= INT_MAX)
 		return (0);
-	else if (verif_error_str(str) < INT_MIN || verif_error_str(str) > INT_MAX)
+	else if (verif_error_str(str) < -2147483648
+		|| verif_error_str(str) > INT_MAX)
 		return (-1);
 	if (include_in_stack(stack_a, str, 0, 1) == -1)
 		return (-1);

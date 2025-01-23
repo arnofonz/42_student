@@ -6,7 +6,7 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:01:41 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/10 16:50:56 by afontan          ###   ########.fr       */
+/*   Updated: 2025/01/22 09:50:16 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_gnl_list
+{
+	char				*content;
+	struct s_gnl_list	*next;
+}	t_gnl;
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
@@ -81,5 +87,20 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 char	*get_next_line(int fd);
 int		ft_strchr_gnl(const char *str, int c);
 char	*ft_strjoin_gnl(char const *s1, char *s2);
+
+/**========================================================================
+ *                          	 GNL
+ *========================================================================**/
+
+int		search_newline(t_gnl *store);
+t_gnl	*ft_lstlast_gnl(t_gnl *store);
+char	*fetch_queue(t_gnl *store);
+void	cpylst_to_str(t_gnl *store, char *queue);
+int		lstlen_till_newline(t_gnl *store);
+void	cutting_in(t_gnl **store);
+void	free_store(t_gnl **store, t_gnl *clean_store, char *product);
+void	stock_replenishment(t_gnl **store, char *product, int fd);
+int		inventory(t_gnl **store, int fd);
+char	*get_next_line(int fd);
 
 #endif
