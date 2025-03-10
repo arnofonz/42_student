@@ -6,13 +6,13 @@
 /*   By: afontan <afontan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:09:19 by afontan           #+#    #+#             */
-/*   Updated: 2025/01/29 17:33:38 by afontan          ###   ########.fr       */
+/*   Updated: 2024/11/18 10:59:31 by afontan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(long nb)
+int	ft_putnbr(int nb)
 {
 	int	tmp;
 	int	count;
