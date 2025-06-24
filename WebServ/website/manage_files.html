@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WebServ</title>
+</head>
+<body>
+	<header>
+		<img src="files/webserv.svg"></img>
+		<p>A simple and efficient web server implementation</p>
+	</header>
+
+	<nav>
+		<a href="/index.html">Home</a>
+		<a href="/manage_files.html">Manage files</a>
+		<a href="/files">Library</a>
+		<a href="/service.html">Services</a>
+		<a href="/private">Private</a>
+	</nav>
+
+	<main>
+		<section>
+			<h1>Manage Files</h2>
+			<p>Here you can upload and delete files and see your modification in "Library" section of this site.</p>
+		</section>
+
+		<section class="card">
+			<h2>Upload</h2>
+			<form action="/upload" method="post" enctype="multipart/form-data">
+				<input type="file" name="file" required>
+				<button type="submit">Upload</button>
+			</form>
+		</section>
+		<section class="card">
+			<h2>Delete</h2>
+			<form id="deleteForm">
+				<input type="text" name="filename" placeholder="Enter filename to delete" required>
+				<button type="submit">Delete</button>
+			</form>
+		</section>
+	</main>
+
+	<footer>
+		<p>&copy; 2025 WebServ - By Hadrien Duflos (hduflos), Mathis Peyre Schortzen (mpeyre-s) & Arnaud (afontan) - No rights reserved</p>
+	</footer>
+</body>
+<style>
+	body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	}
+
+	header {
+		background-color: #4a89dc;
+		color: white;
+		text-align: center;
+		padding: 2rem 0;
+	}
+
+	nav {
+		background-color: #333;
+		color: white;
+		padding: 1rem;
+		text-align: center;
+	}
+
+	nav a {
+		color: white;
+		margin: 0 1rem;
+		text-decoration: none;
+		position: relative;
+	}
+
+	nav a:hover {
+		color: white;
+	}
+
+	nav a::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 1px;
+		bottom: 0;
+		left: 0;
+		background-color: white;
+		transition: width 0.3s ease;
+	}
+
+	nav a:hover::after {
+		width: 100%;
+	}
+
+	main {
+		max-width: 800px;
+		margin: 2rem auto;
+		padding: 0 1rem;
+	}
+
+	footer {
+		background-color: #333;
+		color: white;
+		text-align: center;
+		padding: 1rem;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.card {
+		background-color: #4a89dc;
+		color: white;
+		border-radius: 10px;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+		padding: 1rem;
+		margin: 1rem 0;
+	}
+
+	.card h2 {
+		margin-top: 0;
+	}
+
+	.card form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.card input[type="file"],
+	.card input[type="text"] {
+		padding: 0.5rem;
+		border: none;
+		border-radius: 5px;
+	}
+
+	.card button {
+		background-color: #fff;
+		color: #4a89dc;
+		border: none;
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+		font-weight: bold;
+		transition: background 0.2s, color 0.2s;
+	}
+
+	.card button:hover {
+		background-color: #357ab8;
+		color: #fff;
+	}
+</style>
+<script>
+	document.getElementById('deleteForm').addEventListener('submit', async function(e) {
+		e.preventDefault();
+		const filename = this.filename.value;
+		const res = await fetch('/files?filename=' + encodeURIComponent(filename), {
+			method: 'DELETE'
+		});
+		document.open();
+		document.write(await res.text());
+		document.close();
+	});
+</script>
+</html>
